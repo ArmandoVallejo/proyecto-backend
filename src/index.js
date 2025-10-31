@@ -5,6 +5,8 @@ const path = require('path');
 const logger = require('./middleware/logger');
 const projectRoutes = require('./routes/projectRoutes');
 const fileRoutes = require('./routes/fileRoutes');
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./swagger');
 
 dotenv.config();
 
@@ -23,5 +25,11 @@ app.get('/', (req, res) => {
 
 app.use('/api', projectRoutes);
 app.use('/api', fileRoutes);
+
+// Swagger UI
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+// Optional: serve raw spec as JSON
+app.get('/api-docs.json', (req, res) => res.json(swaggerSpec));
 
 module.exports = app;
