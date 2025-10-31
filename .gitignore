@@ -23,6 +23,10 @@ build/
 # Test environment
 .env.test
 
+# Uploaded files (keep directory structure but ignore uploaded files)
+uploads/projects/*
+!uploads/projects/.gitkeep
+
 # Temporary files
 .tmp/
 .cache/
