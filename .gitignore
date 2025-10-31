@@ -20,6 +20,9 @@ coverage/
 dist/
 build/
 
+# Test environment
+.env.test
+
 # Temporary files
 .tmp/
 .cache/
